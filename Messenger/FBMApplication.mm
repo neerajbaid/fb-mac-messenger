@@ -41,7 +41,7 @@
                 if (chars.length == 1) {
                     switch ([chars characterAtIndex:0]) {
                         case u'	':
-                            [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:1;
+                            [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:1];
                             break;
                         default:
                             break;
