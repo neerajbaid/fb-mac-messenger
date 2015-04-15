@@ -14,11 +14,11 @@
                         return;
                     }
                     case u'[': {
-                        [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:@"-1"];
+                        [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:-1];
                         break;
                     }
                     case u']': {
-                        [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:@"1"];
+                        [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:1];
                         break;
                     }
                     default: {
@@ -31,7 +31,7 @@
                 if (chars.length == 1) {
                     switch ([chars characterAtIndex:0]) {
                         case 25: // shift tab seems to be a different character than normal tab
-                            [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:@"-1"];
+                            [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:-1];
                             break;
                         default:
                             break;
@@ -41,7 +41,7 @@
                 if (chars.length == 1) {
                     switch ([chars characterAtIndex:0]) {
                         case u'	':
-                            [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:@"1"];
+                            [((AppDelegate*)self.delegate) incrementActiveConversationIndexBy:1;
                             break;
                         default:
                             break;

@@ -4,7 +4,7 @@
 
 - (IBAction)checkForUpdates:(id)sender;
 - (void)setActiveConversationAtIndex:(NSString *)index;
-- (void)incrementActiveConversationIndexBy:(NSString*)numToIncrement;
+- (void)incrementActiveConversationIndexBy:(NSInteger)numToIncrement;
 
 @end
 

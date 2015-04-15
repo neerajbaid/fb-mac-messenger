@@ -229,7 +229,7 @@ static void __attribute__((constructor))_init() {
 }
 
 
-- (void)incrementActiveConversationIndexBy:(NSString*)numToIncrement {
+- (void)incrementActiveConversationIndexBy:(NSInteger)numToIncrement {
    // some script
 }
 
