@@ -4,22 +4,53 @@
 @implementation FBMApplication
 
 - (void)sendEvent:(NSEvent*)event {
-  // Cmd-1 .. Cmd-9
-  if (event.type == NSKeyDown && (event.modifierFlags & NSCommandKeyMask)) {
-    auto chars = event.charactersIgnoringModifiers;
-    if (chars.length == 1) {
-      switch ([chars characterAtIndex:0]) {
-        case u'1' ... u'9': {
-          [((AppDelegate*)self.delegate) setActiveConversationAtIndex:event.characters];
-          return;
+    if (event.type == NSKeyDown) {
+        auto chars = event.charactersIgnoringModifiers;
+        if (event.modifierFlags & NSCommandKeyMask) {
+            if (chars.length == 1) {
+                switch ([chars characterAtIndex:0]) {
+                    case u'1' ... u'9': { // Cmd-1 .. Cmd-9
+                        [((AppDelegate*)self.delegate) setActiveConversationAtIndex:event.characters];
+                        return;
+                    }
+                    case u'[': {
+                        NSLog(@"cmd+[");
+                        break;
+                    }
+                    case u']': {
+                        NSLog(@"cmd+]");
+                        break;
+                    }
+                    default: {
+                        break;
+                    }
+                }
+            }
+        } else if (event.modifierFlags & NSControlKeyMask) {
+            if (event.modifierFlags & NSShiftKeyMask) {
+                if (chars.length == 1) {
+                    switch ([chars characterAtIndex:0]) {
+                        case 25: // shift tab seems to be a different character than normal tab
+                            NSLog(@"ctrl+shift+tab");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            } else {
+                if (chars.length == 1) {
+                    switch ([chars characterAtIndex:0]) {
+                        case u'	':
+                            NSLog(@"ctrl+tab");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
         }
-        default: {
-          break;
-        }
-      }
     }
-  }
-  [super sendEvent:event];
+    [super sendEvent:event];
 }
 
 @end
