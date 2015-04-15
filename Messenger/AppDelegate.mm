@@ -229,6 +229,11 @@ static void __attribute__((constructor))_init() {
 }
 
 
+- (void)incrementActiveConversationIndexBy:(NSString*)numToIncrement {
+   // some script
+}
+
+
 - (IBAction)reloadFromServer:(id)sender {
   auto req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://www.messenger.com/login"]];
   [_webView.mainFrame loadRequest:req];
